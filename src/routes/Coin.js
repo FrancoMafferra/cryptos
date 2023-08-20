@@ -41,7 +41,7 @@ const Coin = () => {
               {coin.symbol ? <p>{coin.symbol.toUpperCase()}/USD</p> : null}
             </div>
             <div className="coin-price">
-              {coin.market_data?.current_price ? (
+              {coin.market_data && coin.market_data.current_price ? (
                 <h1>${coin.market_data.current_price.usd.toLocaleString()}</h1>
               ) : null}
             </div>
@@ -63,40 +63,70 @@ const Coin = () => {
             <tbody>
               <tr>
                 <td>
-                  {coin.market_data?.price_change_percentage_24h_in_currency ? (
-                    <p>{coin.price_change_percentage_1h_in_currency}</p>
+                  {coin.market_data?.price_change_percentage_1h_in_currency
+                    ?.usd ? (
+                    <p>
+                      {
+                        coin.market_data.price_change_percentage_1h_in_currency
+                          .usd
+                      }
+                    </p>
                   ) : null}{" "}
-                  getting price...
                 </td>
+
                 <td>
                   {coin.market_data?.price_change_percentage_24h_in_currency ? (
-                    <p>{coin.price_change_percentage_24h_in_currency}</p>
+                    <p>
+                      {
+                        coin.market_data.price_change_percentage_24h_in_currency
+                          .usd
+                      }
+                    </p>
                   ) : null}{" "}
-                  getting price...
                 </td>
+
                 <td>
-                  {coin.market_data?.price_change_percentage_24h_in_currency ? (
-                    <p>{coin.price_change_percentage_7d_in_currency}</p>
+                  {coin.market_data?.price_change_percentage_7d_in_currency ? (
+                    <p>
+                      {
+                        coin.market_data.price_change_percentage_7d_in_currency
+                          .usd
+                      }
+                    </p>
                   ) : null}{" "}
-                  getting price...
                 </td>
+
                 <td>
-                  {coin.market_data?.price_change_percentage_24h_in_currency ? (
-                    <p>{coin.price_change_percentage_14d_in_currency}</p>
+                  {coin.market_data?.price_change_percentage_14d_in_currency ? (
+                    <p>
+                      {
+                        coin.market_data.price_change_percentage_14d_in_currency
+                          .usd
+                      }
+                    </p>
                   ) : null}{" "}
-                  getting price...
                 </td>
+
                 <td>
-                  {coin.market_data?.price_change_percentage_24h_in_currency ? (
-                    <p>{coin.price_change_percentage_30d_in_currency}</p>
+                  {coin.market_data?.price_change_percentage_30d_in_currency ? (
+                    <p>
+                      {
+                        coin.market_data.price_change_percentage_30d_in_currency
+                          .usd
+                      }
+                    </p>
                   ) : null}{" "}
-                  getting price...
                 </td>
+
                 <td>
-                  {coin.market_data?.price_change_percentage_24h_in_currency ? (
-                    <p>{coin.price_change_percentage_1y_in_currency}</p>
+                  {coin.market_data?.price_change_percentage_1y_in_currency ? (
+                    <p>
+                      {
+                        coin.market_data.price_change_percentage_1y_in_currency
+                          .usd
+                      }
+                    </p>
                   ) : null}{" "}
-                  getting price...
                 </td>
               </tr>
             </tbody>
