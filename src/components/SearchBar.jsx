@@ -75,7 +75,7 @@ const SearchBar = () => {
     return (
         <div >
             <input
-            className='input'
+                className='input'
                 type="text"
                 placeholder="
                 look for a coin"
