@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import './SearchBar.css';
 
 const SearchBar = () => {
     const [searchTerm, setSearchTerm] = useState('');
@@ -72,19 +73,21 @@ const SearchBar = () => {
     }, []);
 
     return (
-        <div>
+        <div >
             <input
+            className='input'
                 type="text"
-                placeholder="Buscar una moneda"
+                placeholder="
+                look for a coin"
                 value={searchTerm}
                 onChange={handleInputChange}
             />
-            <button onClick={handleSearch}>Buscar</button>
+            <button className='btn-search' onClick={handleSearch}>Search</button>
 
             {searchResults.length > 0 && (
                 <ul ref={searchResultsRef} style={{ position: 'absolute', zIndex: 1 }}>
                     {searchResults.map(coin => (
-                        <li key={coin.id} onClick={() => handleAutocomplete(coin.name)}>{coin.name}</li>
+                        <li className='li-search' key={coin.id} onClick={() => handleAutocomplete(coin.name)}>{coin.name}</li>
                     ))}
                 </ul>
             )}
