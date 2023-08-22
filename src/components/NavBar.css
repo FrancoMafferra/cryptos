@@ -12,3 +12,27 @@
 .purple{
     color: #692fbb;
 }
+
+.barra{
+    display: flex;
+    align-items: center;
+
+}
+.elements{
+    display: flex;
+    margin-left: auto;
+    margin-right: 30vh;}
+
+.btn-search{
+    border-radius: 8px;
+    font-size: 15px;
+    height: 30px;
+    width: 70px;
+    border: 0.1px white solid;
+    box-shadow: 0px 0px 40px #6900ff;
+    background-color: #6900ff;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 1em;
+}

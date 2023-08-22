@@ -10,6 +10,7 @@
     "cors-anywhere": "^0.4.4",
     "dompurify": "^2.3.10",
     "http-proxy-middleware": "^2.0.6",
+    "node-fetch": "^3.3.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
