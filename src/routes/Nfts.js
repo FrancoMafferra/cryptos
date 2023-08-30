@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "./Nfts.css";
+import { Link } from "react-router-dom";
 
 function Nfts() {
   const [data, setData] = useState([]);
@@ -67,7 +68,7 @@ function Nfts() {
               id: detailsData.id,
               name: detailsData.name,
               description: detailsData.description,
-              image_url: detailsData.image?.small || "",
+              image_url: detailsData.image.small || "",
               native_currency: detailsData.native_currency,
               // Agregar las propiedades que necesites
             };
@@ -76,22 +77,11 @@ function Nfts() {
         );
         setData(detailsDataArray);
         console.log(detailsDataArray);
-        return detailsDataArray;
       } catch (error) {
         console.error("Error al obtener los datos de la API:", error);
-        return null;
       }
     };
 
-    {
-      /*  infoNft().then((detailsDataArray) => {
-    // Aquí puedes hacer uso del array detailsDataArray
-    console.log(detailsDataArray);
-    }).catch((error) => {
-    console.error('Error al obtener los datos:', error);
-    });
-*/
-    }
     infoNft();
   }, [currentPage, itemsPerPage]);
 
@@ -101,6 +91,28 @@ function Nfts() {
     <>
       <h1>NFTs</h1>
 
+      <table className="container-table">
+        <thead className="table-thead">
+          <tr>
+            <th className="table-th">Symbol</th>
+            <th className="table-th">Name</th>
+            <th className="table-th">Native Currency</th>
+            <th className="table-th">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item) => (
+            <tr key={item.id}>
+              <td>
+                {item.image_url && <img src={item.image_url} alt={item.name} />}
+              </td>
+              <td className="table-th">{item.name}</td>
+              <td className="table-th">{item.native_currency}</td>
+              <td className="table-th">{item.description}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
       <div className="pagination">
         <button
           className="btn-p"
@@ -118,27 +130,6 @@ function Nfts() {
           Next
         </button>
       </div>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Symbol</th>
-            <th>Native Currency</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((item) => (
-            <tr key={item.id}>
-              <td>{item.name}</td>
-              <td>{item.id}</td>
-              <td>{item.native_currency}</td>
-              <td>{item.description}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
     </>
   );
 }

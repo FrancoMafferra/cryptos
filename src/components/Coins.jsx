@@ -49,6 +49,8 @@ const Coins = (props) => {
                 {showPreviousButton && (
                     <button className="previous-page" onClick={handlePreviousPage}> Previous</button>
                 )}
+                        <span>{currentPage}</span>
+
                 {showNextButton && (
                     <button className="next-page" onClick={handleNextPage}>Next </button>
                 )}

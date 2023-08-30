@@ -21,4 +21,17 @@
     align-items: center;
     display: flex;
     justify-content: center;
+    margin-top: 3rem
+}
+
+.container-table{
+    font-family: ui-monospace;
+}
+
+.table-th{
+    font-size: 1em;
+}
+
+.table-thead{
+    background-color: red;
 }
