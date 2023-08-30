@@ -1,34 +1,11 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
 import "./Nfts.css";
-import { Link } from "react-router-dom";
 
 function Nfts() {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(5);
   const [totalPages, setTotalPages] = useState(0);
-
-  {
-    /*useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `https://api.coingecko.com/api/v3/nfts/list?per_page=${itemsPerPage}&page=${currentPage}`
-        );
-        const info = response.data;
-        console.log(info)
-        const totalPages = Math.ceil(response.headers["total"] / itemsPerPage);
-        setData(info);
-        setTotalPages(totalPages);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, [currentPage, itemsPerPage]);*/
-  }
 
   const handleClickPrevious = () => {
     setCurrentPage((prevPage) => {
